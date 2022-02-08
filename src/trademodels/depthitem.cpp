@@ -29,36 +29,21 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef NEWSMODEL_H
-#define NEWSMODEL_H
+#include "depthitem.h"
+#include "main.h"
+#include "july/julymath.h"
 
-#include "july/julyhttp.h"
-#include <QThread>
-
-class NewsModel : public QObject
+bool DepthItem::isValid()
 {
-    Q_OBJECT
+    bool valid = price >= 0.0 && volume >= 0.0;
 
-public:
-    NewsModel();
-    ~NewsModel();
+    if (valid)
+    {
+        priceStr = JulyMath::textFromDouble(price, qMin(baseValues.currentPair.priceDecimals, baseValues.decimalsPriceOrderBook));
 
-public slots:
-    void loadData();
+        int decimals = qMin(baseValues.currentPair.currADecimals, baseValues.decimalsAmountOrderBook);
+        volumeStr = JulyMath::textFromDouble(volume, decimals, decimals);
+    }
 
-signals:
-    void setHtmlData(QByteArray);
-
-private slots:
-    void run();
-    void quit();
-    void dataReceived(QByteArray, int, int);
-    void destroyedJulyHttp();
-
-private:
-    QScopedPointer<QThread>  downloadThread;
-    bool      runningJulyHttp;
-    QScopedPointer<JulyHttp> julyHttp;
-};
-
-#endif // NEWSMODEL_H
+    return valid;
+}

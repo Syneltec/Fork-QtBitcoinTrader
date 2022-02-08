@@ -29,36 +29,40 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef NEWSMODEL_H
-#define NEWSMODEL_H
+#include "july/julyspinboxfix.h"
+#include "main.h"
 
-#include "july/julyhttp.h"
-#include <QThread>
-
-class NewsModel : public QObject
+JulySpinBoxFix::JulySpinBoxFix(QDoubleSpinBox* parentSB, int minWid)
+    : QObject()
 {
-    Q_OBJECT
+    if (baseValues.forceDotInSpinBoxes)
+        parentSB->setLocale(QLocale::English);
+    else
+        parentSB->setLocale(QLocale::Ukrainian);
 
-public:
-    NewsModel();
-    ~NewsModel();
+    pMinimumWidth = minWid;
+    spinMargin = 30;
 
-public slots:
-    void loadData();
+    if (parentSB->buttonSymbols() == QDoubleSpinBox::NoButtons)
+        spinMargin = 8;
 
-signals:
-    void setHtmlData(QByteArray);
+    parentSpinBox = parentSB;
+    widthFix(parentSB->text());
 
-private slots:
-    void run();
-    void quit();
-    void dataReceived(QByteArray, int, int);
-    void destroyedJulyHttp();
+    if (!parentSB->suffix().isEmpty())
+    {
+        pMinimumWidth = parentSB->minimumWidth();
+        parentSB->setMinimumWidth(pMinimumWidth);
+        widthFix(parentSB->text());
+    }
 
-private:
-    QScopedPointer<QThread>  downloadThread;
-    bool      runningJulyHttp;
-    QScopedPointer<JulyHttp> julyHttp;
-};
+    connect(parentSB, SIGNAL(valueChanged(QString)), this, SLOT(widthFix(QString)));
+}
 
-#endif // NEWSMODEL_H
+void JulySpinBoxFix::widthFix(const QString& text)
+{
+    if (pMinimumWidth == 0)
+        parentSpinBox->setMinimumWidth(textFontWidth(text) + spinMargin);
+    else
+        parentSpinBox->setMinimumWidth(qMax(textFontWidth(text) + spinMargin, pMinimumWidth));
+}

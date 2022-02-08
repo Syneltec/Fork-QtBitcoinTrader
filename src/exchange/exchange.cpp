@@ -31,9 +31,9 @@
 
 #include "exchange.h"
 #include "main.h"
-#include "depthitem.h"
+#include "trademodels/depthitem.h"
 #include <QFile>
-#include "currencypairitem.h"
+#include "trademodels/currencypairitem.h"
 #include "iniengine.h"
 
 Exchange::Exchange()

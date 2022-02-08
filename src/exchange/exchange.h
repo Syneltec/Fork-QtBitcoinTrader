@@ -39,11 +39,11 @@
 #include "main.h"
 #include <QtCore/qmath.h>
 #include "qtbitcointrader.h"
-#include "julyhttp.h"
-#include "orderitem.h"
-#include "tradesitem.h"
-#include "julymath.h"
-#include "indicatorengine.h"
+#include "july/julyhttp.h"
+#include "trademodels/orderitem.h"
+#include "trademodels/tradesitem.h"
+#include "july/julymath.h"
+#include "trademodels/indicatorengine.h"
 
 struct DepthItem;
 

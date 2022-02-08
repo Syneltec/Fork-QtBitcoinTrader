@@ -29,36 +29,47 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef NEWSMODEL_H
-#define NEWSMODEL_H
+#ifndef UPDATERDIALOG_H
+#define UPDATERDIALOG_H
 
+#include <QDialog>
+#include "ui_updaterdialog.h"
 #include "july/julyhttp.h"
-#include <QThread>
+#include <QTimer>
 
-class NewsModel : public QObject
+class UpdaterDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    NewsModel();
-    ~NewsModel();
-
-public slots:
-    void loadData();
-
-signals:
-    void setHtmlData(QByteArray);
-
-private slots:
-    void run();
-    void quit();
-    void dataReceived(QByteArray, int, int);
-    void destroyedJulyHttp();
+    explicit UpdaterDialog(bool feedbackMessage);
+    ~UpdaterDialog();
 
 private:
-    QScopedPointer<QThread>  downloadThread;
-    bool      runningJulyHttp;
-    QScopedPointer<JulyHttp> julyHttp;
+    bool forceUpdate;
+    QByteArray getMidData(const QString& a, QString b, QByteArray* data);
+    bool downloaded100;
+    bool feedbackMessage;
+    QTimer* timeOutTimer;
+    void downloadError(int);
+    void downloadErrorFile(int);
+    QString updateVersion;
+    QByteArray updateSignature;
+    QByteArray versionSignature;
+    QString updateChangeLog;
+    QString updateLink;
+
+    int stateUpdate;
+    bool autoUpdate;
+    JulyHttp* httpGet;
+    JulyHttp* httpGetFile;
+    Ui::UpdaterDialog ui;
+private slots:
+    void invalidData(bool);
+    void dataReceived(QByteArray, int, int);
+    void exitSlot();
+    void dataProgress(int);
+    void buttonUpdate();
 };
 
-#endif // NEWSMODEL_H
+#endif // UPDATERDIALOG_H

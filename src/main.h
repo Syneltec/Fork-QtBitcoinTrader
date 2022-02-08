@@ -33,7 +33,7 @@
 #define MAIN_H
 #include "qtextstream.h"
 #include <QFontMetrics>
-#include "julytranslator.h"
+#include "july/julytranslator.h"
 #include "logthread.h"
 
 #define textFontWidth(text) baseValues_->fontMetrics_->horizontalAdvance(text)
@@ -59,8 +59,8 @@
 #define hmacSha1(key, baseString) QByteArray(reinterpret_cast<const char *>(HMAC(EVP_sha1(),key.constData(), key.size(), reinterpret_cast<const unsigned char *>(baseString.constData()), static_cast<size_t>(baseString.size()), nullptr, nullptr)),20)
 
 #include "qtbitcointrader.h"
-#include "apptheme.h"
-#include "currencypairitem.h"
+#include "sysadmutils/apptheme.h"
+#include "trademodels/currencypairitem.h"
 
 class Exchange;
 class QProcess;

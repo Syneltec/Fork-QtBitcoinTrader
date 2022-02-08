@@ -31,7 +31,7 @@
 
 #include "addrulegroup.h"
 #include "main.h"
-#include "thisfeatureunderdevelopment.h"
+#include "sysadmutils/thisfeatureunderdevelopment.h"
 #include <QFileDialog>
 #include "rulescriptparser.h"
 #include <QMessageBox>

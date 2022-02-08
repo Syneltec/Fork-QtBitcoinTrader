@@ -35,27 +35,27 @@
 #include <QMainWindow>
 
 #include "ui_qtbitcointrader.h"
-#include "depthmodel.h"
+#include "trademodels/depthmodel.h"
 #include <QCloseEvent>
 #include <QSortFilterProxyModel>
 #include <QSystemTrayIcon>
 #include <QSettings>
 #include <QMenu>
 #include <QTime>
-#include "tradesmodel.h"
-#include "ordersmodel.h"
-#include "orderitem.h"
-#include "historymodel.h"
+#include "trademodels/tradesmodel.h"
+#include "trademodels/ordersmodel.h"
+#include "trademodels/orderitem.h"
+#include "trademodels/historymodel.h"
 #include <QKeyEvent>
-#include "currencypairitem.h"
+#include "trademodels/currencypairitem.h"
 #include "script/rulewidget.h"
 #include "script/scriptwidget.h"
-#include "feecalculator.h"
-#include "percentpicker.h"
+#include "components/feecalculator.h"
+#include "components/percentpicker.h"
 #include <QScrollArea>
 #include <time.h>
 #include <QElapsedTimer>
-#include "debugviewer.h"
+#include "sysadmutils/debugviewer.h"
 #include <QTextToSpeech>
 
 class Exchange;

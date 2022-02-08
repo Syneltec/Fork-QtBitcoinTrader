@@ -29,36 +29,38 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef NEWSMODEL_H
-#define NEWSMODEL_H
+#ifndef TRANSLATIONDIALOG_H
+#define TRANSLATIONDIALOG_H
 
-#include "july/julyhttp.h"
-#include <QThread>
+#include <QDialog>
+#include "translationline.h"
+#include "ui_translationdialog.h"
+#include <QResizeEvent>
+#include "july/julytranslator.h"
 
-class NewsModel : public QObject
+class TranslationDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    NewsModel();
-    ~NewsModel();
-
-public slots:
-    void loadData();
-
-signals:
-    void setHtmlData(QByteArray);
-
-private slots:
-    void run();
-    void quit();
-    void dataReceived(QByteArray, int, int);
-    void destroyedJulyHttp();
+    explicit TranslationDialog(QWidget* parent = 0);
+    ~TranslationDialog();
 
 private:
-    QScopedPointer<QThread>  downloadThread;
-    bool      runningJulyHttp;
-    QScopedPointer<JulyHttp> julyHttp;
+    void resizeEvent(QResizeEvent* event);
+    QGridLayout* gridLayout;
+    TranslationLine* authorAbout;
+    void fillLayoutByMap(QMap<QString, QString>*, QString subName, QMap<QString, QString>* dMap);
+    QList<TranslationLine*> lineEdits;
+    QWidget fonWidget;
+    Ui::TranslationDialog ui;
+public slots:
+    void deleteTranslationButton();
+    void lineTextChanged();
+    void fixLayout();
+    void searchLang(const QString&);
+    void applyButton();
+    void saveAsButton();
 };
 
-#endif // NEWSMODEL_H
+#endif // TRANSLATIONDIALOG_H

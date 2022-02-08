@@ -29,36 +29,27 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef NEWSMODEL_H
-#define NEWSMODEL_H
+#include "systranslate/translationmessage.h"
+#include "systranslate/translationdialog.h"
+#include "main.h"
 
-#include "july/julyhttp.h"
-#include <QThread>
-
-class NewsModel : public QObject
+TranslationMessage::TranslationMessage() : QDialog()
 {
-    Q_OBJECT
+    ui.setupUi(this);
+    setWindowFlags(Qt::WindowCloseButtonHint);
 
-public:
-    NewsModel();
-    ~NewsModel();
+    julyTranslator.translateUi(this);
+}
 
-public slots:
-    void loadData();
+TranslationMessage::~TranslationMessage()
+{
+}
 
-signals:
-    void setHtmlData(QByteArray);
+void TranslationMessage::on_createTranslationButton_clicked()
+{
+    this->close();
 
-private slots:
-    void run();
-    void quit();
-    void dataReceived(QByteArray, int, int);
-    void destroyedJulyHttp();
-
-private:
-    QScopedPointer<QThread>  downloadThread;
-    bool      runningJulyHttp;
-    QScopedPointer<JulyHttp> julyHttp;
-};
-
-#endif // NEWSMODEL_H
+    auto* translationDialog = new TranslationDialog;
+    translationDialog->setWindowFlags(windowFlags());
+    translationDialog->show();
+}

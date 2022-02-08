@@ -30,8 +30,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "main.h"
-#include "julymath.h"
-#include "tradesitem.h"
+#include "july/julymath.h"
+#include "trademodels/tradesitem.h"
 #include "timesync.h"
 #include "charts/chartsview.h"
 #include "charts/chartsmodel.h"

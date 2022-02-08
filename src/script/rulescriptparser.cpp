@@ -32,7 +32,7 @@
 #include "rulescriptparser.h"
 #include "main.h"
 #include <QSettings>
-#include "julymath.h"
+#include "july/julymath.h"
 
 RuleScriptParser::RuleScriptParser()
 {

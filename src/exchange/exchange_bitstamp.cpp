@@ -209,8 +209,11 @@ void Exchange_Bitstamp::buy(const QString& symbol, double apiBtcToBuy, double ap
     if (pairItem.symbol.isEmpty())
         return;
 
-    QByteArray params = "amount=" + JulyMath::byteArrayFromDouble(apiBtcToBuy, pairItem.currADecimals, 0)
-                        + "&price=" + JulyMath::byteArrayFromDouble(apiPriceToBuy, pairItem.priceDecimals, 0);
+    QByteArray params;
+    params = "amount="
+           + JulyMath::byteArrayFromDouble(apiBtcToBuy, pairItem.currADecimals, 0)
+           + "&price="
+           + JulyMath::byteArrayFromDouble(apiPriceToBuy, pairItem.priceDecimals, 0);
 
     if (debugLevel)
         logThread->writeLog("Buy: " + params, 2);

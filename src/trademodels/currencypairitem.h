@@ -29,36 +29,50 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef NEWSMODEL_H
-#define NEWSMODEL_H
+#ifndef CURRENCYPAIRITEM_H
+#define CURRENCYPAIRITEM_H
 
-#include "july/julyhttp.h"
-#include <QThread>
+#include "trademodels/currencyinfo.h"
 
-class NewsModel : public QObject
+struct CurrencyPairItem
 {
-    Q_OBJECT
+    CurrencyPairItem();
 
-public:
-    NewsModel();
-    ~NewsModel();
+    void setSymbol(QByteArray symb);
 
-public slots:
-    void loadData();
+    QString currAName;
+    QString name;
 
-signals:
-    void setHtmlData(QByteArray);
+    CurrencyInfo currAInfo;
+    CurrencyInfo currBInfo;
 
-private slots:
-    void run();
-    void quit();
-    void dataReceived(QByteArray, int, int);
-    void destroyedJulyHttp();
+    QString symbol;
+    QString symbolSecond() const
+    {
+        return symbol + currRequestSecond;
+    }
+    QByteArray currRequestPair;
+    QByteArray currRequestSecond;
 
-private:
-    QScopedPointer<QThread>  downloadThread;
-    bool      runningJulyHttp;
-    QScopedPointer<JulyHttp> julyHttp;
+    QString currAStr;
+    QString currAStrLow;
+    QString currASign;
+
+    QString currBStr;
+    QString currBStrLow;
+    QString currBSign;
+
+    double priceMin;//qPow(0.1,priceDecimals);
+    //double priceMax;
+    double tradePriceMin;
+    double tradeVolumeMin;
+    double tradeTotalMin;
+
+    int priceDecimals;
+    int currADecimals;
+    int currBDecimals;
+    int currABalanceDecimals;
+    int currBBalanceDecimals;
 };
 
-#endif // NEWSMODEL_H
+#endif // CURRENCYPAIRITEM_H

@@ -31,11 +31,11 @@
 
 #include "main.h"
 #include "config/config_manager.h"
-#include "datafolderchusedialog.h"
+#include "sysadmutils/datafolderchusedialog.h"
 #include "exchange/exchange.h"
 #include "iniengine.h"
-#include "julyaes256.h"
-#include "julylockfile.h"
+#include "july/julyaes256.h"
+#include "july/julylockfile.h"
 #include "login/allexchangesdialog.h"
 #include "login/featuredexchangesdialog.h"
 #include "login/newpassworddialog.h"
@@ -43,8 +43,8 @@
 #include "login/qttraderinform.h"
 #include "qsystemdetection.h"
 #include "timesync.h"
-#include "translationdialog.h"
-#include "updaterdialog.h"
+#include "systranslate/translationdialog.h"
+#include "sysadmutils/updaterdialog.h"
 #include "utils/utils.h"
 #include <QApplication>
 #include <QDesktopServices>

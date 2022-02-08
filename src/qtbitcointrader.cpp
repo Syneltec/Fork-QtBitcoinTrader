@@ -29,7 +29,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#include "julyspinboxpicker.h"
+#include "july/julyspinboxpicker.h"
 #include <QTableWidget>
 #include <QTimeLine>
 #include <QScrollBar>
@@ -38,9 +38,9 @@
 #include <QSettings>
 #include "main.h"
 #include "timesync.h"
-#include "julylightchanges.h"
-#include "julyspinboxfix.h"
-#include "julyscrolluponidle.h"
+#include "july/julylightchanges.h"
+#include "july/julyspinboxfix.h"
+#include "july/julyscrolluponidle.h"
 #include <QFileInfo>
 #include <QClipboard>
 #include <QProcess>
@@ -52,7 +52,7 @@
 #include <QUrl>
 #include <QDockWidget>
 #include "script/addscriptwindow.h"
-#include "aboutdialog.h"
+#include "sysadmutils/aboutdialog.h"
 #include "exchange/exchange.h"
 #include "exchange/exchange_bitstamp.h"
 #include "exchange/exchange_bitfinex.h"
@@ -65,20 +65,20 @@
 #include <QSystemTrayIcon>
 #include <QtCore/qmath.h>
 #include "script/addrulegroup.h"
-#include "percentpicker.h"
-#include "logobutton.h"
+#include "components/percentpicker.h"
+#include "sysadmutils/logobutton.h"
 #include "script/scriptwidget.h"
-#include "thisfeatureunderdevelopment.h"
-#include "orderstablecancelbutton.h"
+#include "sysadmutils/thisfeatureunderdevelopment.h"
+#include "trademodels/orderstablecancelbutton.h"
 #include "script/rulescriptparser.h"
-#include "julymath.h"
+#include "july/julymath.h"
 #include "platform/sound.h"
 #include "dock/dock_host.h"
 #include "config/config_manager.h"
 #include "config/config_manager_dialog.h"
 #include "utils/utils.h"
 #include "settings/settingsdialog.h"
-#include "indicatorengine.h"
+#include "trademodels/indicatorengine.h"
 #include "charts/chartsmodel.h"
 #include "charts/chartsview.h"
 #include "news/newsview.h"

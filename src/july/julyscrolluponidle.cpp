@@ -29,36 +29,31 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef NEWSMODEL_H
-#define NEWSMODEL_H
+#include "july/julyscrolluponidle.h"
 
-#include "july/julyhttp.h"
-#include <QThread>
-
-class NewsModel : public QObject
+JulyScrollUpOnIdle::JulyScrollUpOnIdle(QScrollBar* parent)
+    : QObject(parent)
 {
-    Q_OBJECT
+    scrollBar = parent;
+    idleTimer = new QTimer(this);
+    connect(idleTimer, SIGNAL(timeout()), this, SLOT(timeOut()));
+    connect(scrollBar, SIGNAL(valueChanged(int)), this, SLOT(valueChanged(int)));
+}
 
-public:
-    NewsModel();
-    ~NewsModel();
+JulyScrollUpOnIdle::~JulyScrollUpOnIdle()
+{
 
-public slots:
-    void loadData();
+}
 
-signals:
-    void setHtmlData(QByteArray);
+void JulyScrollUpOnIdle::timeOut()
+{
+    scrollBar->setValue(0);
+}
 
-private slots:
-    void run();
-    void quit();
-    void dataReceived(QByteArray, int, int);
-    void destroyedJulyHttp();
-
-private:
-    QScopedPointer<QThread>  downloadThread;
-    bool      runningJulyHttp;
-    QScopedPointer<JulyHttp> julyHttp;
-};
-
-#endif // NEWSMODEL_H
+void JulyScrollUpOnIdle::valueChanged(int val)
+{
+    if (val > 0)
+        idleTimer->start(30000);
+    else
+        idleTimer->stop();
+}

@@ -29,36 +29,62 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef NEWSMODEL_H
-#define NEWSMODEL_H
+#include "trademodels/tradesitem.h"
+#include "main.h"
+#include "july/julymath.h"
 
-#include "july/julyhttp.h"
-#include <QThread>
-
-class NewsModel : public QObject
+TradesItem::TradesItem()
 {
-    Q_OBJECT
+    backGray = false;
+    displayFullDate = false;
+    date = 0;
+    amount = 0.0;
+    price = 0.0;
+    total = 0.0;
+    orderType = 0;
+    direction = 0;
+}
 
-public:
-    NewsModel();
-    ~NewsModel();
+void TradesItem::cacheStrings()
+{
+    QDateTime itemDate = QDateTime::fromTime_t(date);
 
-public slots:
-    void loadData();
+    if (baseValues_->use24HourTimeFormat)
+    {
+        timeStr = itemDate.toString(baseValues.timeFormat);
+        dateStr = itemDate.toString(baseValues.dateTimeFormat);
+    }
+    else
+    {
+        QString mmssTemp = itemDate.toString("mm:ss");
+        QString hTemp = itemDate.toString("H");
+        qint16 hTempInt = hTemp.toShort();
 
-signals:
-    void setHtmlData(QByteArray);
+        if (hTempInt <= 12)
+            timeStr = hTemp + ':' + mmssTemp + " am";
+        else
+            timeStr = QString::number(hTempInt - 12) + ':' + mmssTemp + " pm";
 
-private slots:
-    void run();
-    void quit();
-    void dataReceived(QByteArray, int, int);
-    void destroyedJulyHttp();
+        dateStr = itemDate.toString("dd.MM.yyyy") + ' ' + timeStr;
+    }
 
-private:
-    QScopedPointer<QThread>  downloadThread;
-    bool      runningJulyHttp;
-    QScopedPointer<JulyHttp> julyHttp;
-};
+    if (price > 0.0)
+        priceStr = JulyMath::textFromDouble(price, baseValues.decimalsPriceLastTrades);
 
-#endif // NEWSMODEL_H
+    if (amount > 0.0)
+        amountStr = JulyMath::textFromDouble(amount, baseValues.decimalsAmountLastTrades);
+
+    if (amount > 0.0 && price > 0.0)
+        totalStr = JulyMath::textFromDouble(price * amount, qMin(baseValues.currentPair.currBDecimals,
+                                            baseValues.decimalsTotalLastTrades));
+}
+
+bool TradesItem::isValid()
+{
+    bool valid = date > 0 && price > 0.0 && amount > 0.0;
+
+    if (valid)
+        cacheStrings();
+
+    return valid;
+}

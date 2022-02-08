@@ -33,13 +33,13 @@
 #include "ui_addruledialog.h"
 #include "main.h"
 #include <QFileDialog>
-#include "julyspinboxfix.h"
-#include "percentpicker.h"
+#include "july/julyspinboxfix.h"
+#include "components/percentpicker.h"
 #include "rulescriptparser.h"
 #include "exchange/exchange.h"
 #include <QMessageBox>
 #include "scriptobject.h"
-#include "julymath.h"
+#include "july/julymath.h"
 #include <QComboBox>
 #include "utils/traderspinbox.h"
 #include "rulewidget.h"

@@ -29,36 +29,48 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef NEWSMODEL_H
-#define NEWSMODEL_H
+#include "sysadmutils/datafolderchusedialog.h"
+#include "main.h"
+#include <QStandardPaths>
 
-#include "july/julyhttp.h"
-#include <QThread>
-
-class NewsModel : public QObject
+DataFolderChuseDialog::DataFolderChuseDialog(QString systemPath, QString localPath)
+    : QDialog()
 {
-    Q_OBJECT
+    isPortable = false;
+    ui.setupUi(this);
+    setWindowFlags(Qt::WindowCloseButtonHint);
 
-public:
-    NewsModel();
-    ~NewsModel();
 
-public slots:
-    void loadData();
+#ifdef Q_OS_WIN
+    systemPath.replace('/', '\\');
+    localPath.replace('/', '\\');
+#else
 
-signals:
-    void setHtmlData(QByteArray);
+    QString homeDir = QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first();
 
-private slots:
-    void run();
-    void quit();
-    void dataReceived(QByteArray, int, int);
-    void destroyedJulyHttp();
+    if (systemPath.startsWith(homeDir))
+    {
+        systemPath.remove(0, homeDir.size());
+        systemPath.prepend("~");
+    }
 
-private:
-    QScopedPointer<QThread>  downloadThread;
-    bool      runningJulyHttp;
-    QScopedPointer<JulyHttp> julyHttp;
-};
+#endif
 
-#endif // NEWSMODEL_H
+    ui.buttonUseSystemFolder->setText(julyTr("USE_SYSTEM_FOLDER", "Store your data in system folder") + "\n\n" + systemPath);
+    ui.buttonUsePortableMode->setToolTip(systemPath);
+    ui.buttonUsePortableMode->setText(julyTr("USE_PORTABLE_MODE",
+                                      "Enable portable mode. Store your data in same folder as executable file"));
+    ui.buttonUsePortableMode->setToolTip(localPath);
+    setFixedSize(minimumSizeHint().width() + 40, qMax(minimumSizeHint().height(), 150));
+}
+
+DataFolderChuseDialog::~DataFolderChuseDialog()
+{
+
+}
+
+void DataFolderChuseDialog::on_buttonUsePortableMode_clicked()
+{
+    isPortable = true;
+    accept();
+}

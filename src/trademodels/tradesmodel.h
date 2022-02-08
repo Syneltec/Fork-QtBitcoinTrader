@@ -29,36 +29,60 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef NEWSMODEL_H
-#define NEWSMODEL_H
+#ifndef TRADESMODEL_H
+#define TRADESMODEL_H
 
-#include "july/julyhttp.h"
-#include <QThread>
+#include <QAbstractItemModel>
+#include <QStringList>
+#include "trademodels/tradesitem.h"
 
-class NewsModel : public QObject
+class TradesModel : public QAbstractItemModel
 {
     Q_OBJECT
 
 public:
-    NewsModel();
-    ~NewsModel();
+    TradesModel();
+    ~TradesModel();
+    void updateTotalBTC();
+    double getRowPrice(int);
+    double getRowVolume(int);
+    int getRowType(int);
+    void clear();
+    void removeDataOlderThen(qint64);
+    void addNewTrades(QList<TradesItem>*);
 
-public slots:
-    void loadData();
+    void setHorizontalHeaderLabels(QStringList list);
 
-signals:
-    void setHtmlData(QByteArray);
+    QModelIndex index(int row, int column, const QModelIndex& parent = QModelIndex()) const;
+    QModelIndex parent(const QModelIndex& index) const;
 
-private slots:
-    void run();
-    void quit();
-    void dataReceived(QByteArray, int, int);
-    void destroyedJulyHttp();
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
+    Qt::ItemFlags flags(const QModelIndex& index) const;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+
+    int rowCount(const QModelIndex& parent = QModelIndex()) const;
+    int columnCount(const QModelIndex& parent = QModelIndex()) const;
 
 private:
-    QScopedPointer<QThread>  downloadThread;
-    bool      runningJulyHttp;
-    QScopedPointer<JulyHttp> julyHttp;
+    double lastPrecentBids;
+    qint64 lastRemoveDate;
+    void removeFirst();
+    QString textBid;
+    QString textAsk;
+
+    double lastPrice;
+    int columnsCount;
+    int dateWidth;
+    int typeWidth;
+
+    QStringList headerLabels;
+
+    QList<TradesItem> itemsList;
+signals:
+    void precentBidsChanged(double);
+    void trades10MinVolumeChanged(double);
+    void addChartsTrades(QList<TradesItem>*);
+    void addChartsData(QList<TradesItem>*);
 };
 
-#endif // NEWSMODEL_H
+#endif // TRADESMODEL_H

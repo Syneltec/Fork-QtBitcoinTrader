@@ -36,8 +36,8 @@
 #include <QMap>
 #include <QHash>
 #include <atomic>
-#include "currencyinfo.h"
-#include "currencypairitem.h"
+#include "trademodels/currencyinfo.h"
+#include "trademodels/currencypairitem.h"
 
 class QThread;
 class JulyHttp;

@@ -29,36 +29,25 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef NEWSMODEL_H
-#define NEWSMODEL_H
+#include "sysadmutils/thisfeatureunderdevelopment.h"
+#include "main.h"
 
-#include "july/julyhttp.h"
-#include <QThread>
-
-class NewsModel : public QObject
+ThisFeatureUnderDevelopment::ThisFeatureUnderDevelopment(QWidget* parent)
+    : QDialog(parent)
 {
-    Q_OBJECT
+    ui.setupUi(this);
+    setWindowFlags(Qt::WindowCloseButtonHint);
+    themeChanged();
+    connect(baseValues.mainWindow_, SIGNAL(themeChanged()), this, SLOT(themeChanged()));
+}
 
-public:
-    NewsModel();
-    ~NewsModel();
+ThisFeatureUnderDevelopment::~ThisFeatureUnderDevelopment()
+{
 
-public slots:
-    void loadData();
+}
 
-signals:
-    void setHtmlData(QByteArray);
-
-private slots:
-    void run();
-    void quit();
-    void dataReceived(QByteArray, int, int);
-    void destroyedJulyHttp();
-
-private:
-    QScopedPointer<QThread>  downloadThread;
-    bool      runningJulyHttp;
-    QScopedPointer<JulyHttp> julyHttp;
-};
-
-#endif // NEWSMODEL_H
+void ThisFeatureUnderDevelopment::themeChanged()
+{
+    ui.labelNotAvailable->setStyleSheet("background: " + baseValues.appTheme.white.name() +
+                                        "; border-radius: 8px; border: 1px solid " + baseValues.appTheme.gray.name());
+}

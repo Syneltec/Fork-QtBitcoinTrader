@@ -35,7 +35,7 @@
 #include <QLabel>
 #include <QTimer>
 #include "main.h"
-#include "julyhttp.h"
+#include "july/julyhttp.h"
 #include "exchangebutton.h"
 #include "featuredexchangesdialog.h"
 #include "ui_featuredexchangesdialog.h"

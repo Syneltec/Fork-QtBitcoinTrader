@@ -35,8 +35,8 @@
 #include <QDir>
 #include "main.h"
 #include "exchange/exchange.h"
-#include "julyhttp.h"
-#include "julyrsa.h"
+#include "july/julyhttp.h"
+#include "july/julyrsa.h"
 #include "iniengine.h"
 
 IniEngine::IniEngine()

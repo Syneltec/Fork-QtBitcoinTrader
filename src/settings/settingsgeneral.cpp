@@ -31,7 +31,7 @@
 
 #include "settingsgeneral.h"
 #include "main.h"
-#include "translationmessage.h"
+#include "systranslate/translationmessage.h"
 #include "charts/chartsview.h"
 #include <QDir>
 

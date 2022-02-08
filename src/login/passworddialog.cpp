@@ -36,9 +36,9 @@
 #include <QMessageBox>
 #include <QDesktopServices>
 #include <QCryptographicHash>
-#include "logobutton.h"
+#include "sysadmutils/logobutton.h"
 #include "timesync.h"
-#include "julyrsa.h"
+#include "july/julyrsa.h"
 
 PasswordDialog::PasswordDialog(QWidget* parent)
     : QDialog(parent)
