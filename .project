@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>QtBitcoinTrader</name>
+	<name>Fork-QtBitcoinTrader</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -17,15 +17,4 @@
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.qt.core.qtNature</nature>
 	</natures>
-	<filteredResources>
-		<filter>
-			<id>1644153940151</id>
-			<name></name>
-			<type>10</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-build-initial-ref</arguments>
-			</matcher>
-		</filter>
-	</filteredResources>
 </projectDescription>

@@ -9,7 +9,6 @@ lessThan(QT_MAJOR_VERSION, 6) {
 }
 
 TARGET      = QtBitcoinTrader
-CONFIG     += qt c++11
 
 TEMPLATE    = app
 LANGUAGE    = C++

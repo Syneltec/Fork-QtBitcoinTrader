@@ -41,7 +41,7 @@
     </size>
    </property>
    <property name="pixmap">
-    <pixmap resource="QtResource.qrc">:/Resources/CentrabitDay.png</pixmap>
+    <pixmap resource="../QtResource.qrc">:/Resources/CentrabitDay.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -53,7 +53,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="QtResource.qrc"/>
+  <include location="../QtResource.qrc"/>
  </resources>
  <connections/>
 </ui>
