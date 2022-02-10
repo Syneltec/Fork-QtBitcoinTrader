@@ -69,3 +69,4 @@ src/ui_*.h
 src/.ui/*
 
 *.autosave
+/.qmake.stash
