@@ -4357,14 +4357,14 @@ void QtBitcoinTrader::setupWidgets()
     sellThanBuySpinBoxPrec->setMaximum(9999.0);
     ui.sellThanBuySpinBoxPrecLayout->addWidget(sellThanBuySpinBoxPrec);
 
-    connect(buyTotalSpend,          QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &QtBitcoinTrader::buyTotalSpend_valueChanged);
-    connect(buyPricePerCoin,        QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &QtBitcoinTrader::buyPricePerCoin_valueChanged);
-    connect(buyTotalBtc,            QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &QtBitcoinTrader::buyTotalBtc_valueChanged);
-    connect(profitLossSpinBox,      QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &QtBitcoinTrader::profitLossSpinBox_valueChanged);
-    connect(profitLossSpinBoxPrec,  QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &QtBitcoinTrader::profitLossSpinBoxPrec_valueChanged);
-    connect(sellTotalBtc,           QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &QtBitcoinTrader::sellTotalBtc_valueChanged);
-    connect(sellPricePerCoin,       QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &QtBitcoinTrader::sellPricePerCoin_valueChanged);
-    connect(sellAmountToReceive,    QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &QtBitcoinTrader::sellAmountToReceive_valueChanged);
-    connect(sellThanBuySpinBox,     QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &QtBitcoinTrader::sellThanBuySpinBox_valueChanged);
-    connect(sellThanBuySpinBoxPrec, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &QtBitcoinTrader::sellThanBuySpinBoxPrec_valueChanged);
+    connect(buyTotalSpend,          (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::buyTotalSpend_valueChanged);
+    connect(buyPricePerCoin,        (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::buyPricePerCoin_valueChanged);
+    connect(buyTotalBtc,            (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::buyTotalBtc_valueChanged);
+    connect(profitLossSpinBox,      (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::profitLossSpinBox_valueChanged);
+    connect(profitLossSpinBoxPrec,  (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::profitLossSpinBoxPrec_valueChanged);
+    connect(sellTotalBtc,           (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::sellTotalBtc_valueChanged);
+    connect(sellPricePerCoin,       (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::sellPricePerCoin_valueChanged);
+    connect(sellAmountToReceive,    (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::sellAmountToReceive_valueChanged);
+    connect(sellThanBuySpinBox,     (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::sellThanBuySpinBox_valueChanged);
+    connect(sellThanBuySpinBoxPrec, (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::sellThanBuySpinBoxPrec_valueChanged);
 }
