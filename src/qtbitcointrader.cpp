@@ -81,7 +81,7 @@
 #include "trademodels/indicatorengine.h"
 #include "charts/chartsmodel.h"
 #include "charts/chartsview.h"
-#include "news/newsview.h"
+//#include "news/newsview.h"
 #include "menu/networkmenu.h"
 #include "menu/currencymenu.h"
 #include "utils/currencysignloader.h"
@@ -531,8 +531,8 @@ QtBitcoinTrader::QtBitcoinTrader() :
     connect(this, &QtBitcoinTrader::addBound, chartsView->chartsModel.data(), &ChartsModel::addBound);
     ui.chartsLayout->addWidget(chartsView);
 
-    newsView = new NewsView();
-    ui.newsLayout->addWidget(newsView);
+//    newsView = new NewsView();
+//    ui.newsLayout->addWidget(newsView);
 
     //ChatWindow *chatWindow=new ChatWindow();
     //ui.chatLayout->addWidget(chatWindow);
@@ -3359,7 +3359,7 @@ void QtBitcoinTrader::languageChanged()
     translateTab(ui.tabLastTrades);
     translateTab(ui.tabDepth);
     translateTab(ui.tabCharts);
-    translateTab(ui.tabNews);
+//    translateTab(ui.tabNews);
     //translateTab(ui.tabChat);
 
     ui.widgetAccount->parentWidget()->setWindowTitle(julyTr("ACCOUNT_GROUPBOX", "%1 Account").arg(baseValues.exchangeName));
@@ -4117,14 +4117,14 @@ void QtBitcoinTrader::moveWidgetsToDocks()
     dockDepth = createDock(ui.tabDepth, "Order Book");
     QDockWidget* dockLastTrades = createDock(ui.tabLastTrades, "Trades");
     QDockWidget* dockCharts = createDock(ui.tabCharts, "Charts");
-    QDockWidget* dockNews = createDock(ui.tabNews, "News");
+//    QDockWidget* dockNews = createDock(ui.tabNews, "News");
     //QDockWidget* dockChat = createDock(ui.tabChat, "Chat");
     splitDockWidget(dockGroupOrders, dockOrdersLog, Qt::Horizontal);
     tabifyDockWidget(dockOrdersLog, dockRules);
     tabifyDockWidget(dockOrdersLog, dockDepth);
     tabifyDockWidget(dockOrdersLog, dockLastTrades);
     tabifyDockWidget(dockOrdersLog, dockCharts);
-    tabifyDockWidget(dockOrdersLog, dockNews);
+//    tabifyDockWidget(dockOrdersLog, dockNews);
     //tabifyDockWidget(dockOrdersLog, dockChat);
     delete ui.tabWidget;
 
@@ -4136,7 +4136,7 @@ void QtBitcoinTrader::moveWidgetsToDocks()
 
     connect(dockDepth,  SIGNAL(visibilityChanged(bool)), this,       SLOT(depthVisibilityChanged(bool)));
     connect(dockCharts, SIGNAL(visibilityChanged(bool)), chartsView, SLOT(visibilityChanged(bool)));
-    connect(dockNews,   SIGNAL(visibilityChanged(bool)), newsView,   SLOT(visibilityChanged(bool)));
+//    connect(dockNews,   SIGNAL(visibilityChanged(bool)), newsView,   SLOT(visibilityChanged(bool)));
 
     lockedDocks = iniSettings->value("UI/LockedDocks", false).toBool();
 
@@ -4357,14 +4357,18 @@ void QtBitcoinTrader::setupWidgets()
     sellThanBuySpinBoxPrec->setMaximum(9999.0);
     ui.sellThanBuySpinBoxPrecLayout->addWidget(sellThanBuySpinBoxPrec);
 
-    connect(buyTotalSpend,          (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::buyTotalSpend_valueChanged);
-    connect(buyPricePerCoin,        (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::buyPricePerCoin_valueChanged);
-    connect(buyTotalBtc,            (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::buyTotalBtc_valueChanged);
-    connect(profitLossSpinBox,      (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::profitLossSpinBox_valueChanged);
-    connect(profitLossSpinBoxPrec,  (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::profitLossSpinBoxPrec_valueChanged);
-    connect(sellTotalBtc,           (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::sellTotalBtc_valueChanged);
-    connect(sellPricePerCoin,       (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::sellPricePerCoin_valueChanged);
-    connect(sellAmountToReceive,    (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::sellAmountToReceive_valueChanged);
-    connect(sellThanBuySpinBox,     (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::sellThanBuySpinBox_valueChanged);
-    connect(sellThanBuySpinBoxPrec, (char*)QOverload<double>::of(&QDoubleSpinBox::valueChanged), (char*)this, (Qt::ConnectionType)&QtBitcoinTrader::sellThanBuySpinBoxPrec_valueChanged);
+    typedef void (QDoubleSpinBox ::* TTTT)(double);
+    typedef void (QtBitcoinTrader::* UUUU)(double);
+    TTTT sigptr = QOverload<double>::of(&QDoubleSpinBox::valueChanged);
+
+    connect(buyTotalSpend,          sigptr, this, (UUUU)&QtBitcoinTrader::buyTotalSpend_valueChanged);
+    connect(buyPricePerCoin,        sigptr, this, (UUUU)&QtBitcoinTrader::buyPricePerCoin_valueChanged);
+    connect(buyTotalBtc,            sigptr, this, (UUUU)&QtBitcoinTrader::buyTotalBtc_valueChanged);
+    connect(profitLossSpinBox,      sigptr, this, (UUUU)&QtBitcoinTrader::profitLossSpinBox_valueChanged);
+    connect(profitLossSpinBoxPrec,  sigptr, this, (UUUU)&QtBitcoinTrader::profitLossSpinBoxPrec_valueChanged);
+    connect(sellTotalBtc,           sigptr, this, (UUUU)&QtBitcoinTrader::sellTotalBtc_valueChanged);
+    connect(sellPricePerCoin,       sigptr, this, (UUUU)&QtBitcoinTrader::sellPricePerCoin_valueChanged);
+    connect(sellAmountToReceive,    sigptr, this, (UUUU)&QtBitcoinTrader::sellAmountToReceive_valueChanged);
+    connect(sellThanBuySpinBox,     sigptr, this, (UUUU)&QtBitcoinTrader::sellThanBuySpinBox_valueChanged);
+    connect(sellThanBuySpinBoxPrec, sigptr, this, (UUUU)&QtBitcoinTrader::sellThanBuySpinBoxPrec_valueChanged);
 }

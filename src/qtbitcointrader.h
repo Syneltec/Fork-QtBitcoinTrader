@@ -67,7 +67,7 @@ class NetworkMenu;
 class CurrencyMenu;
 class CurrencySignLoader;
 class ChartsView;
-class NewsView;
+//class NewsView;
 class TraderSpinBox;
 
 struct GroupStateItem
@@ -181,7 +181,7 @@ public:
     bool closeToTray;
 
     ChartsView* chartsView = nullptr;
-    NewsView* newsView = nullptr;
+//    NewsView  * newsView   = nullptr;
 
     QScopedPointer<QTimer> secondTimer;
 private:
