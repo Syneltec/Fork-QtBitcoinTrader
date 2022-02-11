@@ -58,9 +58,6 @@ struct BaseValues
     qint64  trafficTotal;
     int     trafficTotalType;
 
-    int     trafficSpeed;
-    qint64  trafficTotal;
-    int     trafficTotalType;
     int     scriptsThatUseOrderBookCount;
 
     int     debugLevel_; //0: Disabled; 1: Debug; 2: Log
