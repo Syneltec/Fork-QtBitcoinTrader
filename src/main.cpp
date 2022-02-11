@@ -68,6 +68,7 @@ BaseValues *baseValues_;
 
 BaseValues::BaseValues()
 {
+    portableMode = false;
     forceDotInSpinBoxes = true;
     scriptsThatUseOrderBookCount = 0;
     trafficSpeed = 0;
