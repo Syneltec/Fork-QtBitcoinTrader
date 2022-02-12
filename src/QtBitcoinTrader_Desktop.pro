@@ -74,6 +74,8 @@ linux:
 # Headers
 #
 HEADERS +=                  \
+    $${PWD}/tabbedwins/*.h  \
+    \
     $${PWD}/charts/*.h      \
     $${PWD}/components/*.h  \
     $${PWD}/config/*.h      \
@@ -82,7 +84,6 @@ HEADERS +=                  \
     $${PWD}/july/*.h        \
     $${PWD}/login/*.h       \
     $${PWD}/menu/*.h        \
-    $${PWD}/news/*.h        \
     $${PWD}/platform/*.h    \
     $${PWD}/script/*.h      \
     $${PWD}/settings/*.h    \
@@ -90,23 +91,30 @@ HEADERS +=                  \
     $${PWD}/systranslate/*.h\
     $${PWD}/trademodels/*.h \
     $${PWD}/utils/*.h       \
-    $${PWD}/*.h             
+    $${PWD}/*.h              \
+    tabbedwins/tabwidget.h
+#   $${PWD}/news/*.h        \
 
 
 FORMS   +=                   \
+    $${PWD}/tabbedwins/*.ui  \
+    \
     $${PWD}/charts/*.ui      \
     $${PWD}/components/*.ui  \
     $${PWD}/config/*.ui      \
     $${PWD}/login/*.ui       \
     $${PWD}/menu/*.ui        \
-    $${PWD}/news/*.ui        \
     $${PWD}/script/*.ui      \
     $${PWD}/settings/*.ui    \
     $${PWD}/sysadmutils/*.ui \
     $${PWD}/systranslate/*.ui\
-    $${PWD}/*.ui             
+    $${PWD}/*.ui             \
+    tabbedwins/tabwidget.ui
+#   $${PWD}/news/*.ui        \
 
 SOURCES +=                    \
+    $${PWD}/tabbedwins/*.cpp  \
+    \
     $${PWD}/charts/*.cpp      \
     $${PWD}/components/*.cpp  \
     $${PWD}/config/*.cpp      \
@@ -115,7 +123,6 @@ SOURCES +=                    \
     $${PWD}/july/*.cpp        \
     $${PWD}/login/*.cpp       \
     $${PWD}/menu/*.cpp        \
-    $${PWD}/news/*.cpp        \
     $${PWD}/platform/*.cpp    \
     $${PWD}/script/*.cpp      \
     $${PWD}/settings/*.cpp    \
@@ -123,7 +130,9 @@ SOURCES +=                    \
     $${PWD}/systranslate/*.cpp\
     $${PWD}/trademodels/*.cpp \
     $${PWD}/utils/*.cpp       \
-    $${PWD}/*.cpp             
+    $${PWD}/*.cpp              \
+    tabbedwins/tabwidget.cpp
+#   $${PWD}/news/*.cpp        \
 
 #
 # Resources

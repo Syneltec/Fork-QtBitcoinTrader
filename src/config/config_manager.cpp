@@ -32,7 +32,9 @@
 #include "config_manager.h"
 
 #include <QString>
-#include <QApplication>
+#include <QGuiApplication>
+#include <QScreen>
+#include <QRect>
 #include <QDesktopWidget>
 #include "main.h"
 #include "timesync.h"
@@ -171,7 +173,9 @@ void ConfigManager::load(const QString& name)
 
     if (names.isEmpty())
     {
-        if (QApplication::desktop()->screenGeometry().width() < 1210)
+        QScreen * scr = QGuiApplication::primaryScreen();
+        QRect rect = scr->geometry();
+        if (rect.width() < 1210)
             load(defaultNamesTr[1]);
         else
             load(defaultNamesTr[0]);

@@ -177,7 +177,6 @@
                 <property name="font">
                  <font>
                   <pointsize>11</pointsize>
-                  <weight>50</weight>
                   <bold>false</bold>
                  </font>
                 </property>
@@ -537,7 +536,6 @@
            <property name="font">
             <font>
              <pointsize>11</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -563,7 +561,6 @@
            <property name="font">
             <font>
              <pointsize>11</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -634,7 +631,6 @@
            <property name="font">
             <font>
              <pointsize>11</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -703,7 +699,6 @@
            <property name="font">
             <font>
              <pointsize>11</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -860,7 +855,6 @@
            <property name="font">
             <font>
              <pointsize>11</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -886,7 +880,6 @@
            <property name="font">
             <font>
              <pointsize>11</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -1033,7 +1026,6 @@
              <property name="font">
               <font>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -1124,7 +1116,6 @@
              <property name="font">
               <font>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -1323,7 +1314,6 @@
              <property name="font">
               <font>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -1368,7 +1358,6 @@
              <property name="font">
               <font>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -1432,7 +1421,6 @@
              <property name="font">
               <font>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -1572,7 +1560,6 @@
              <property name="font">
               <font>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -1608,7 +1595,6 @@
         </property>
         <property name="font">
          <font>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -2415,7 +2401,7 @@
          <string notr="true"/>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>6</number>
         </property>
         <property name="iconSize">
          <size>
@@ -2556,7 +2542,6 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -2631,7 +2616,6 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -3096,7 +3080,6 @@
               <property name="font">
                <font>
                 <pointsize>11</pointsize>
-                <weight>50</weight>
                 <bold>false</bold>
                </font>
               </property>
@@ -3449,7 +3432,6 @@
             <property name="font">
              <font>
               <pointsize>11</pointsize>
-              <weight>50</weight>
               <bold>false</bold>
              </font>
             </property>
@@ -3690,32 +3672,6 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="tabNews">
-         <property name="accessibleName">
-          <string>TAB_NEWS</string>
-         </property>
-         <attribute name="title">
-          <string>News</string>
-         </attribute>
-         <layout class="QGridLayout" name="gridLayout_17">
-          <item row="0" column="0">
-           <layout class="QGridLayout" name="newsLayout"/>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QWidget" name="tabChat">
-         <property name="accessibleName">
-          <string>TAB_CHAT</string>
-         </property>
-         <attribute name="title">
-          <string>Chat</string>
-         </attribute>
-         <layout class="QGridLayout" name="gridLayout_22">
-          <item row="0" column="0">
-           <layout class="QGridLayout" name="chatLayout"/>
-          </item>
-         </layout>
-        </widget>
        </widget>
       </item>
      </layout>
@@ -3740,7 +3696,6 @@
           </property>
           <property name="font">
            <font>
-            <weight>50</weight>
             <bold>false</bold>
            </font>
           </property>
@@ -3830,7 +3785,6 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -3909,7 +3863,6 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -4027,7 +3980,6 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -4073,7 +4025,6 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -4106,7 +4057,6 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -4182,7 +4132,6 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -4508,7 +4457,6 @@
              <property name="font">
               <font>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -4643,7 +4591,6 @@
           </property>
           <property name="font">
            <font>
-            <weight>50</weight>
             <bold>false</bold>
            </font>
           </property>
@@ -4670,7 +4617,6 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -4749,7 +4695,6 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -4825,7 +4770,6 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -4877,7 +4821,6 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -5218,7 +5161,6 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -5280,7 +5222,6 @@
              <property name="font">
               <font>
                <pointsize>11</pointsize>
-               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -5565,7 +5506,7 @@
      <x>0</x>
      <y>0</y>
      <width>1550</width>
-     <height>21</height>
+     <height>19</height>
     </rect>
    </property>
   </widget>
@@ -5688,150 +5629,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>tabWidget</sender>
-   <signal>currentChanged(int)</signal>
-   <receiver>QtBitcoinTraderClass</receiver>
-   <slot>tabTradesIndexChanged(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1233</x>
-     <y>269</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1085</x>
-     <y>242</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>depthAsksTable</sender>
-   <signal>doubleClicked(QModelIndex)</signal>
-   <receiver>QtBitcoinTraderClass</receiver>
-   <slot>depthSelectSellOrder(QModelIndex)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>826</x>
-     <y>159</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1085</x>
-     <y>402</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>depthBidsTable</sender>
-   <signal>doubleClicked(QModelIndex)</signal>
-   <receiver>QtBitcoinTraderClass</receiver>
-   <slot>depthSelectBuyOrder(QModelIndex)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1203</x>
-     <y>159</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1085</x>
-     <y>306</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>tableTrades</sender>
-   <signal>doubleClicked(QModelIndex)</signal>
-   <receiver>QtBitcoinTraderClass</receiver>
-   <slot>tradesDoubleClicked(QModelIndex)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>870</x>
-     <y>155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1085</x>
-     <y>411</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>tableHistory</sender>
-   <signal>doubleClicked(QModelIndex)</signal>
-   <receiver>QtBitcoinTraderClass</receiver>
-   <slot>historyDoubleClicked(QModelIndex)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>870</x>
-     <y>155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1085</x>
-     <y>246</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>tableHistory</sender>
-   <signal>customContextMenuRequested(QPoint)</signal>
-   <receiver>QtBitcoinTraderClass</receiver>
-   <slot>tableCopyContextMenuRequested(QPoint)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>870</x>
-     <y>155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1085</x>
-     <y>280</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>depthAsksTable</sender>
-   <signal>customContextMenuRequested(QPoint)</signal>
-   <receiver>QtBitcoinTraderClass</receiver>
-   <slot>tableCopyContextMenuRequested(QPoint)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>826</x>
-     <y>159</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1085</x>
-     <y>186</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>depthBidsTable</sender>
-   <signal>customContextMenuRequested(QPoint)</signal>
-   <receiver>QtBitcoinTraderClass</receiver>
-   <slot>tableCopyContextMenuRequested(QPoint)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1203</x>
-     <y>159</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1085</x>
-     <y>656</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>tableTrades</sender>
-   <signal>customContextMenuRequested(QPoint)</signal>
-   <receiver>QtBitcoinTraderClass</receiver>
-   <slot>tableCopyContextMenuRequested(QPoint)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>870</x>
-     <y>155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1085</x>
-     <y>195</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>ordersTable</sender>
    <signal>customContextMenuRequested(QPoint)</signal>
    <receiver>QtBitcoinTraderClass</receiver>
@@ -5892,6 +5689,150 @@
     <hint type="destinationlabel">
      <x>0</x>
      <y>125</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableTrades</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>QtBitcoinTraderClass</receiver>
+   <slot>tradesDoubleClicked(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>870</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1085</x>
+     <y>411</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>depthAsksTable</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>QtBitcoinTraderClass</receiver>
+   <slot>tableCopyContextMenuRequested(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>826</x>
+     <y>159</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1085</x>
+     <y>186</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>depthBidsTable</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>QtBitcoinTraderClass</receiver>
+   <slot>tableCopyContextMenuRequested(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1203</x>
+     <y>159</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1085</x>
+     <y>656</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableHistory</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>QtBitcoinTraderClass</receiver>
+   <slot>historyDoubleClicked(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>870</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1085</x>
+     <y>246</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tabWidget</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>QtBitcoinTraderClass</receiver>
+   <slot>tabTradesIndexChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1233</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1085</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableHistory</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>QtBitcoinTraderClass</receiver>
+   <slot>tableCopyContextMenuRequested(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>870</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1085</x>
+     <y>280</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableTrades</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>QtBitcoinTraderClass</receiver>
+   <slot>tableCopyContextMenuRequested(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>870</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1085</x>
+     <y>195</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>depthBidsTable</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>QtBitcoinTraderClass</receiver>
+   <slot>depthSelectBuyOrder(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1203</x>
+     <y>159</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1085</x>
+     <y>306</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>depthAsksTable</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>QtBitcoinTraderClass</receiver>
+   <slot>depthSelectSellOrder(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>826</x>
+     <y>159</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1085</x>
+     <y>402</y>
     </hint>
    </hints>
   </connection>
