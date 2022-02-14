@@ -74,8 +74,6 @@ linux:
 # Headers
 #
 HEADERS +=                  \
-    $${PWD}/tabbedwins/*.h  \
-    \
     $${PWD}/charts/*.h      \
     $${PWD}/components/*.h  \
     $${PWD}/config/*.h      \
@@ -91,14 +89,14 @@ HEADERS +=                  \
     $${PWD}/systranslate/*.h\
     $${PWD}/trademodels/*.h \
     $${PWD}/utils/*.h       \
-    $${PWD}/*.h              \
-    tabbedwins/tabwidget.h
+    $${PWD}/workarea/*.h    \
+    $${PWD}/*.h             
+    
 #   $${PWD}/news/*.h        \
+#   $${PWD}/tabbedwins/*.h  \
 
 
 FORMS   +=                   \
-    $${PWD}/tabbedwins/*.ui  \
-    \
     $${PWD}/charts/*.ui      \
     $${PWD}/components/*.ui  \
     $${PWD}/config/*.ui      \
@@ -108,13 +106,12 @@ FORMS   +=                   \
     $${PWD}/settings/*.ui    \
     $${PWD}/sysadmutils/*.ui \
     $${PWD}/systranslate/*.ui\
-    $${PWD}/*.ui             \
-    tabbedwins/tabwidget.ui
+    $${PWD}/workarea/*.ui    \
+    $${PWD}/*.ui             
 #   $${PWD}/news/*.ui        \
+#   $${PWD}/tabbedwins/*.ui  \
 
 SOURCES +=                    \
-    $${PWD}/tabbedwins/*.cpp  \
-    \
     $${PWD}/charts/*.cpp      \
     $${PWD}/components/*.cpp  \
     $${PWD}/config/*.cpp      \
@@ -130,9 +127,11 @@ SOURCES +=                    \
     $${PWD}/systranslate/*.cpp\
     $${PWD}/trademodels/*.cpp \
     $${PWD}/utils/*.cpp       \
-    $${PWD}/*.cpp              \
-    tabbedwins/tabwidget.cpp
+    $${PWD}/workarea/*.cpp    \
+    $${PWD}/*.cpp             \
+
 #   $${PWD}/news/*.cpp        \
+#   $${PWD}/tabbedwins/*.cpp  \
 
 #
 # Resources

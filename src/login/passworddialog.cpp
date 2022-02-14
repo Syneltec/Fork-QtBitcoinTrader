@@ -48,7 +48,7 @@ PasswordDialog::PasswordDialog(QWidget* parent)
     ui.setupUi(this);
     setWindowTitle(windowTitle() + " v" + baseValues.appVerStr);
     setWindowFlags(Qt::WindowCloseButtonHint | Qt::MSWindowsFixedSizeDialogHint);
-    ui.okButton->setEnabled(false);
+    ui.btn_OK->setEnabled(false);
 
     QSettings settings(appDataDir + "/QtBitcoinTrader.cfg", QSettings::IniFormat);
     QString lastProfile = settings.value("LastProfile", "").toString();
@@ -283,7 +283,7 @@ void PasswordDialog::resetDataSlot()
 
 void PasswordDialog::checkToEnableButton(const QString& pass)
 {
-    ui.okButton->setEnabled(pass.length());
+    ui.btn_OK->setEnabled(pass.length());
 }
 
 void PasswordDialog::on_descriptionGroupBox_toggled(bool /*unused*/)
@@ -302,8 +302,4 @@ void PasswordDialog::showTimeMessage(const QString& message)
     QMessageBox::warning(this, julyTr("TIME_ERROR", "Time error"), message);
 }
 
-void PasswordDialog::on_okButton_clicked()
-{
-
-}
 
