@@ -101,7 +101,7 @@ PasswordDialog::PasswordDialog(QWidget* parent)
         if (!QFile::exists(currentLogo))
             currentLogo = ":/Resources/Exchanges/Logos/Unknown.png";
 
-        ui.profileComboBox->addItem(QIcon(currentLogo), settIni.value("Profile/Name",
+        ui.cbx_Profile->addItem(QIcon(currentLogo), settIni.value("Profile/Name",
                                     QFileInfo(settingsList.at(n)).fileName()).toString(), settingsList.at(n));
         bool isProfLocked = isProfileLocked(settingsList.at(n));
 
@@ -126,14 +126,14 @@ PasswordDialog::PasswordDialog(QWidget* parent)
             QFile::remove(baseValues.scriptFolder + curScript);
     }
 
-    if (ui.profileComboBox->count() == 0)
-        ui.profileComboBox->addItem(julyTr("DEFAULT_PROFILE_NAME", "Default Profile"));
+    if (ui.cbx_Profile->count() == 0)
+        ui.cbx_Profile->addItem(julyTr("DEFAULT_PROFILE_NAME", "Default Profile"));
 
     if (firstUnlockedProfileIndex != -1 && lastProfileIndex == -1)
         lastProfileIndex = firstUnlockedProfileIndex;
 
     if (lastProfileIndex > -1)
-        ui.profileComboBox->setCurrentIndex(lastProfileIndex);
+        ui.cbx_Profile->setCurrentIndex(lastProfileIndex);
 
     ui.label_info->setText("Centrabit AG, Zug\nreg. CHE-114.254.375\nVersion: " + baseValues.appVerStr);
 
@@ -193,22 +193,22 @@ bool PasswordDialog::isProfileLocked(const QString& name)
 void PasswordDialog::accept()
 {
     QSettings settings(appDataDir + "/QtBitcoinTrader.cfg", QSettings::IniFormat);
-    int currIndex = ui.profileComboBox->currentIndex();
+    int currIndex = ui.cbx_Profile->currentIndex();
 
     if (currIndex >= 0)
-        settings.setValue("LastProfile", ui.profileComboBox->itemData(currIndex).toString());
+        settings.setValue("LastProfile", ui.cbx_Profile->itemData(currIndex).toString());
 
     QDialog::accept();
 }
 
 QString PasswordDialog::getIniFilePath()
 {
-    int currIndex = ui.profileComboBox->currentIndex();
+    int currIndex = ui.cbx_Profile->currentIndex();
 
     if (currIndex == -1)
         return appDataDir + "/QtBitcoinTrader.ini";
 
-    return appDataDir + "/" + ui.profileComboBox->itemData(currIndex).toString();
+    return appDataDir + "/" + ui.cbx_Profile->itemData(currIndex).toString();
 }
 
 void PasswordDialog::addNewProfile()
@@ -219,7 +219,7 @@ void PasswordDialog::addNewProfile()
 
 QString PasswordDialog::getPassword()
 {
-    return ui.passwordEdit->text();
+    return ui.edt_EditPasswd->text();
 }
 
 void PasswordDialog::resetDataSlot()
@@ -228,7 +228,7 @@ void PasswordDialog::resetDataSlot()
     msgBox.setIcon(QMessageBox::Question);
     msgBox.setWindowTitle(windowTitle());
     msgBox.setText(julyTr("CONFIRM_DELETE_PROFILE",
-                          "Are you sure to delete \"%1\" profile?").arg(ui.profileComboBox->currentText()));
+                          "Are you sure to delete \"%1\" profile?").arg(ui.cbx_Profile->currentText()));
     msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
     msgBox.setDefaultButton(QMessageBox::Yes);
     msgBox.setButtonText(QMessageBox::Yes, julyTr("YES", "Yes"));
@@ -301,3 +301,9 @@ void PasswordDialog::showTimeMessage(const QString& message)
 {
     QMessageBox::warning(this, julyTr("TIME_ERROR", "Time error"), message);
 }
+
+void PasswordDialog::on_okButton_clicked()
+{
+
+}
+
